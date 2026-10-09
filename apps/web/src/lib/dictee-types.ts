@@ -1,0 +1,9 @@
+export type Level = 'facile' | 'intermediaire' | 'avance';
+export type View = 'dictee' | 'liste' | 'mots';
+export type Word = { id: string; text: string; level: Level; tip: string };
+export type Attempt = { word: Word; answer: string; correct: boolean };
+export type Game = { words: Word[]; index: number; lives: number; score: number; streak: number; bestStreak: number; attempts: Attempt[]; finished: boolean; level: Level; review: boolean };
+export type Result = { id: string; date: string; score: number; correct: number; total: number; bestStreak: number; level: Level; attempts: Attempt[] };
+export type SavedState = { results: Result[]; customWords: Word[]; errors: Word[]; game: Game | null; level: Level };
+export const emptyState: SavedState = { results: [], customWords: [], errors: [], game: null, level: 'facile' };
+export const levelLabels: Record<Level, string> = { facile: 'Facile', intermediaire: 'Intermédiaire', avance: 'Avancé' };
